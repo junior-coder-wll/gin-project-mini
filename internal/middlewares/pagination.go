@@ -8,6 +8,11 @@ package middlewares
 
 import "github.com/gin-gonic/gin"
 
+//
+// PaginateMiddleware
+//  @Description: 全局分页中间件
+//  @return gin.HandlerFunc
+//
 func PaginateMiddleware() gin.HandlerFunc {
 	return func(context *gin.Context) {
 

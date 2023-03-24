@@ -4,7 +4,22 @@
 //@Version: 1.0.0
 //@Date: 2023/03/10 03:31
 
-package gin_project_mini
+package main
+
+import (
+	"gin-project-mini/internal/middlewares"
+	"github.com/gin-gonic/gin"
+)
+
+func main() {
+	r := gin.Default()
+	r.GET("/hello", func(c *gin.Context) {
+		c.String(200, "第一个gin框架")
+	})
+	logger := middlewares.NewLogger("runtime/logs", 100, 1)
+	r.Use(middlewares.LoggerMiddleware(logger))
+	r.Run()
+}
 
 /*
 - cmd/
